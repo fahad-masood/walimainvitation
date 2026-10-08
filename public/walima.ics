@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fahad and Rahnuma//Daawat-e-Walima Invitation//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Daawat-e-Walima
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+X-LIC-LOCATION:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:uuid:de652887-8e65-53fa-a7c1-35cbc7ea3f57
+DTSTAMP:20261008T234035Z
+DTSTART;TZID=Asia/Kolkata:20261115T180000
+SUMMARY:Daawat-e-Walima — Fahad Masood & Rahnuma Zarrin
+DESCRIPTION:By the grace of Allah\, you are warmly invited to the Daawat-e-
+ Walima of Fahad Masood & Rahnuma Zarrin.\nHosted by Mr. & Mrs. Masood Alam
+ .\nSunday\, 15 November 2026 | 6:00 PM IST onwards.\nYour gracious presenc
+ e and heartfelt duas will make this joyous celebration truly memorable.\nD
+ irections: https://maps.app.goo.gl/p95MyD74HWYwa48u8
+LOCATION:Regal Palace\, Asopur\, Tanda\, Ambedkar Nagar\, Uttar Pradesh\, I
+ ndia
+URL:https://maps.app.goo.gl/p95MyD74HWYwa48u8
+END:VEVENT
+END:VCALENDAR

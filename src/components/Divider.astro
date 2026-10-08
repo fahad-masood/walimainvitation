@@ -1,0 +1,12 @@
+---
+const { light = false, class: className = '' } = Astro.props;
+---
+<div class:list={['ornamental-divider', { 'ornamental-divider--light': light }, className]} aria-hidden="true">
+  <span></span>
+  <svg width="38" height="25" viewBox="0 0 38 25" fill="none">
+    <path d="M19 2c0 7-7 7-7 12a7 7 0 0 0 14 0c0-5-7-5-7-12Z" stroke="currentColor" stroke-width=".8"/>
+    <path d="M19 9v14M19 18c-7 0-10-4-10-7 6 0 10 3 10 7Zm0 0c7 0 10-4 10-7-6 0-10 3-10 7Z" stroke="currentColor" stroke-width=".8"/>
+    <path d="m4 13 2 2-2 2-2-2 2-2Zm30 0 2 2-2 2-2-2 2-2Z" fill="currentColor"/>
+  </svg>
+  <span></span>
+</div>

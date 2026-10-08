@@ -1,0 +1,2 @@
+# iCalendar requires CRLF; preserve these bytes on every platform.
+*.ics -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

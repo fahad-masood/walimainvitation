@@ -1,0 +1,969 @@
+.masthead {
+  height: 83px;
+  max-width: var(--page-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font: 500 29px var(--serif);
+  text-decoration: none;
+  letter-spacing: -0.035em;
+}
+.brand i {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gold-text);
+}
+.masthead-occasion {
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+}
+.masthead-date {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+.masthead-date span {
+  padding: 0 6px;
+  color: var(--gold);
+}
+.hero {
+  position: relative;
+  max-width: 1260px;
+  min-height: 780px;
+  margin: auto;
+  padding: 102px 24px 70px;
+  isolation: isolate;
+  text-align: center;
+}
+.hero-frame {
+  position: absolute;
+  inset: 28px max(90px, 10%) 38px;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-arch {
+  height: 100%;
+  width: 100%;
+  color: var(--gold);
+  opacity: 0.75;
+}
+.hero-botanical {
+  position: absolute;
+  top: 4px;
+  width: min(28vw, 300px);
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-botanical--left {
+  left: 0;
+}
+.hero-botanical--right {
+  right: 0;
+  transform: scaleX(-1);
+}
+.hero-content {
+  max-width: 750px;
+  margin: auto;
+}
+.bismillah {
+  font: 400 38px/1.65 var(--arabic);
+  min-height: 63px;
+}
+.bismillah-translation {
+  font: italic 16px/1.5 var(--serif);
+  color: var(--muted);
+}
+.hero-blessing {
+  margin-top: 27px;
+  font-size: 8px;
+  letter-spacing: 0.17em;
+}
+.hero-occasion {
+  margin-top: 22px;
+  font: italic 27px/1.2 var(--serif);
+  color: var(--gold-text);
+}
+.couple-names {
+  margin-top: 18px;
+  font: 500 clamp(56px, 7.3vw, 94px)/0.98 var(--serif);
+  letter-spacing: -0.025em;
+}
+.couple-names > span {
+  display: block;
+}
+.couple-names .couple-ampersand {
+  font: italic 40px/0.9 var(--serif);
+  color: var(--gold-text);
+  margin: 12px 0 17px;
+}
+.hero-content > .ornamental-divider {
+  margin: 27px auto 21px;
+  width: 150px;
+}
+.hero-date {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+}
+.hero-date > span {
+  font: italic 20px var(--serif);
+  letter-spacing: 0;
+  padding-right: 17px;
+  border-right: 1px solid var(--line);
+}
+.hero-location {
+  margin-top: 15px;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+.hero-location span {
+  color: var(--gold);
+  padding: 0 7px;
+}
+.discover {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 11px;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 10px 25px;
+}
+.formal-invitation {
+  text-align: center;
+  max-width: 960px;
+  margin: auto;
+}
+.formal-invitation > h2 {
+  margin: 15px 0 31px;
+}
+.invitation-opening,
+.invitation-request {
+  font: 400 20px/1.6 var(--serif);
+  color: var(--muted);
+}
+.host-names {
+  font: 500 35px/1.3 var(--serif);
+  margin: 11px 0;
+}
+.formal-occasion {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  margin: 16px 0;
+}
+.family-composition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+  margin: 27px 0;
+}
+.family-name {
+  font: 500 29px/1.2 var(--serif);
+}
+.family-relation {
+  font-size: 9px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 9px;
+}
+.family-ampersand {
+  font: italic 29px var(--serif);
+  color: var(--gold-text);
+}
+.invitation-message {
+  font: 400 22px/1.55 var(--serif);
+  max-width: 565px;
+  margin: auto;
+  color: var(--muted);
+}
+.verse-section {
+  position: relative;
+  text-align: center;
+  background: var(--emerald);
+  color: var(--ivory);
+  padding: 70px 30px 42px;
+  overflow: hidden;
+}
+.verse-section > .eyebrow {
+  color: #d7c6a0;
+}
+.verse-arabic {
+  font: 400 34px/1.8 var(--arabic);
+  margin: 14px 0 10px;
+}
+.verse-section blockquote p {
+  font: italic 42px/1.15 var(--serif);
+}
+.verse-section cite {
+  display: block;
+  margin: 24px auto 0;
+  font-size: 9px;
+  font-style: normal;
+  color: #d4ddd7;
+  line-height: 1.8;
+}
+.verse-section > .ornamental-divider {
+  margin-top: 28px;
+}
+.verse-corner {
+  position: absolute;
+  inset: 20px auto 20px 20px;
+  width: 70px;
+  border-left: 1px solid rgba(180, 150, 93, 0.6);
+  border-top: 1px solid rgba(180, 150, 93, 0.6);
+  border-bottom: 1px solid rgba(180, 150, 93, 0.6);
+}
+.verse-corner--right {
+  left: auto;
+  right: 20px;
+  transform: scaleX(-1);
+}
+.verse-corner::after {
+  content: "";
+  position: absolute;
+  inset: 8px auto 8px 8px;
+  width: 18px;
+  border-left: 1px solid rgba(180, 150, 93, 0.3);
+  border-top: 1px solid rgba(180, 150, 93, 0.3);
+  border-bottom: 1px solid rgba(180, 150, 93, 0.3);
+}
+.celebration {
+  text-align: center;
+  max-width: 850px;
+  margin: auto;
+}
+.celebration > h2 {
+  margin-top: 15px;
+}
+.celebration > .section-italic {
+  color: var(--muted);
+  margin: 16px 0 35px;
+}
+.event-composition {
+  max-width: 640px;
+  margin: 0 auto 38px;
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.date-panel {
+  border-right: 1px solid var(--line);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px;
+}
+.date-number {
+  font: 400 113px/0.92 var(--serif);
+  letter-spacing: -0.05em;
+  margin: 13px 0 5px;
+}
+.date-month {
+  font: italic 30px/1.3 var(--serif);
+}
+.date-year {
+  font-size: 10px;
+  margin-top: 12px;
+  color: var(--muted);
+}
+.event-details {
+  padding-left: 52px;
+}
+.detail-block + .detail-block {
+  margin-top: 25px;
+}
+.detail-block > .eyebrow {
+  color: var(--muted);
+  font-size: 8px;
+}
+.event-time {
+  font: 500 37px/1.2 var(--serif);
+  margin: 4px 0;
+}
+.event-time span {
+  font-size: 22px;
+}
+.detail-small {
+  font-size: 9px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.event-venue {
+  font: 500 30px/1.3 var(--serif);
+  margin: 6px 0;
+}
+.venue-address {
+  font-size: 10px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.venue-section {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 470px;
+  background: var(--powder);
+}
+.venue-art {
+  margin: 33px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.venue-arch {
+  height: 360px;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--gold);
+  border-radius: 50% 50% 0 0 / 43% 43% 0 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  padding: 35px 18px 28px;
+}
+.venue-arch::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--line);
+  border-radius: inherit;
+}
+.venue-art-label {
+  font-size: 7px;
+  letter-spacing: 0.17em;
+  position: absolute;
+  top: 104px;
+}
+.palace-linework {
+  width: 100%;
+  color: var(--gold);
+  margin-top: 34px;
+  opacity: 0.9;
+}
+.venue-art-caption {
+  font: italic 13px var(--serif);
+  margin-top: 16px;
+}
+.venue-copy {
+  padding: 62px 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.venue-copy h2 {
+  margin-top: 13px;
+  font-size: 56px;
+}
+.venue-subtitle {
+  font: italic 28px/1.4 var(--serif);
+  margin-top: 4px;
+}
+.venue-description {
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 20px 0 28px;
+}
+.directions-note {
+  font-size: 8px;
+  margin-top: 12px;
+  color: var(--muted);
+}
+.rsvp-section {
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+.rsvp-section > .ornamental-divider {
+  margin: 0 auto 28px;
+  width: 280px;
+}
+.rsvp-section > h2 {
+  font-size: 44px;
+  letter-spacing: 0.08em;
+  margin: 13px 0 31px;
+}
+.rsvp-names {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 18px;
+}
+.rsvp-names li {
+  font: 500 25px/1.3 var(--serif);
+  padding: 0 21px;
+  position: relative;
+}
+.rsvp-names li::after {
+  content: "·";
+  position: absolute;
+  right: -2px;
+  color: var(--gold);
+}
+.rsvp-names li:last-child::after {
+  content: none;
+}
+.rsvp-message {
+  font: italic 22px/1.5 var(--serif);
+  color: var(--muted);
+  margin-top: 37px;
+}
+.closing {
+  text-align: center;
+  padding: 0 24px 32px;
+  background: var(--white);
+}
+.closing > .ornamental-divider {
+  margin: 0 auto 25px;
+  padding-top: 26px;
+  width: 100px;
+}
+.closing-arabic {
+  font: 400 31px/1.8 var(--arabic);
+}
+.closing-verse {
+  font: italic 25px/1.4 var(--serif);
+  margin: 3px 0 8px;
+}
+.closing-citation {
+  font-size: 8px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.closing-dua {
+  font: 400 22px/1.45 var(--serif);
+  color: var(--muted);
+  margin: 35px auto 28px;
+}
+.closing-regards {
+  font: italic 18px var(--serif);
+  color: var(--muted);
+}
+.closing-family {
+  font: 500 27px/1.4 var(--serif);
+  margin-top: 8px;
+}
+.closing-monogram {
+  font: 500 29px var(--serif);
+  display: block;
+  margin-top: 31px;
+}
+.closing-monogram i {
+  color: var(--gold-text);
+  font-size: 21px;
+  font-weight: 400;
+}
+.closing-date {
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  margin-top: 16px;
+}
+.closing-date span {
+  color: var(--gold);
+  padding: 0 7px;
+}
+@media (min-width: 1500px) {
+  .hero {
+    min-height: 815px;
+    padding-top: 115px;
+  }
+}
+@media (max-width: 900px) {
+  .masthead {
+    margin: 0 24px;
+    padding: 0 4px;
+  }
+  .hero-frame {
+    inset: 24px 7% 45px;
+  }
+  .hero-botanical {
+    width: 27vw;
+    top: 8px;
+  }
+  .hero {
+    min-height: 710px;
+    padding-top: 99px;
+  }
+  .couple-names {
+    font-size: 76px;
+  }
+  .family-composition {
+    gap: 24px;
+  }
+  .venue-section {
+    margin: 0 24px;
+  }
+  .venue-art {
+    margin: 20px;
+    padding: 0 8px;
+  }
+  .venue-copy {
+    padding: 40px 20px;
+  }
+  .venue-copy h2 {
+    font-size: 44px;
+  }
+}
+@media (max-width: 600px) {
+  .masthead {
+    height: 61px;
+    margin: 0 20px;
+  }
+  .brand {
+    font-size: 25px;
+  }
+  .brand i {
+    font-size: 15px;
+  }
+  .masthead-occasion {
+    display: none;
+  }
+  .masthead-date {
+    font-size: 8px;
+    letter-spacing: 0.11em;
+  }
+  .masthead-date span {
+    padding: 0 4px;
+  }
+  .hero {
+    min-height: 555px;
+    padding: 65px 20px 70px;
+  }
+  .hero-frame {
+    inset: 17px 12px 43px;
+  }
+  .hero-botanical {
+    width: 115px;
+    top: 7px;
+    opacity: 0.9;
+  }
+  .hero-botanical--left {
+    left: 0;
+  }
+  .hero-botanical--right {
+    right: 0;
+  }
+  .bismillah {
+    font-size: 30px;
+    line-height: 1.6;
+    min-height: 48px;
+  }
+  .bismillah-translation {
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+  .hero-blessing {
+    font-size: 8px;
+    letter-spacing: 0.11em;
+    max-width: 245px;
+    margin: 20px auto 0;
+    line-height: 1.7;
+  }
+  .hero-occasion {
+    font-size: 24px;
+    margin-top: 16px;
+  }
+  .couple-names {
+    font-size: clamp(47px, 11.8vw, 63px);
+    margin-top: 18px;
+  }
+  .couple-names .couple-ampersand {
+    font-size: 29px;
+    margin: 10px 0 12px;
+  }
+  .hero-content > .ornamental-divider {
+    width: 110px;
+    margin: 20px auto 16px;
+  }
+  .hero-date {
+    font-size: 11px;
+    gap: 10px;
+    letter-spacing: 0.055em;
+  }
+  .hero-date > span {
+    font-size: 17px;
+    padding-right: 10px;
+  }
+  .hero-location {
+    font-size: 8px;
+    margin-top: 13px;
+    letter-spacing: 0.13em;
+  }
+  .discover {
+    font-size: 6px;
+    gap: 9px;
+    bottom: 2px;
+  }
+  .hero-content {
+    max-width: 410px;
+  }
+  .formal-invitation h2 {
+    font-size: 37px;
+    max-width: 280px;
+    margin: 12px auto 25px;
+  }
+  .invitation-opening,
+  .invitation-request {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .host-names {
+    font-size: 31px;
+    margin: 12px 0;
+  }
+  .formal-occasion {
+    font-size: 10px;
+    letter-spacing: 0.19em;
+    margin: 16px 0;
+  }
+  .family-composition {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 26px;
+  }
+  .family-name {
+    font-size: 29px;
+  }
+  .family-relation {
+    font-size: 9px;
+    margin-top: 6px;
+  }
+  .family-ampersand {
+    font-size: 24px;
+    line-height: 0.8;
+  }
+  .invitation-message {
+    font-size: 21px;
+    max-width: 350px;
+  }
+  .formal-invitation > .ornamental-divider {
+    margin: 28px auto;
+  }
+  .verse-section {
+    padding: 52px 27px 27px;
+  }
+  .verse-section .eyebrow {
+    font-size: 8px;
+  }
+  .verse-arabic {
+    font-size: 27px;
+    margin-top: 13px;
+    line-height: 1.9;
+  }
+  .verse-section blockquote p {
+    font-size: 34px;
+  }
+  .verse-section cite {
+    font-size: 8px;
+    max-width: 255px;
+    margin-top: 19px;
+  }
+  .verse-corner {
+    inset: 12px auto 12px 12px;
+    width: 26px;
+  }
+  .verse-corner--right {
+    left: auto;
+    right: 12px;
+  }
+  .desktop-break {
+    display: none;
+  }
+  .celebration > h2 {
+    font-size: 43px;
+    margin-top: 11px;
+  }
+  .celebration > .section-italic {
+    font-size: 23px;
+    margin: 11px 0 24px;
+  }
+  .event-composition {
+    grid-template-columns: 1fr 1.4fr;
+    margin-bottom: 27px;
+    padding: 25px 0;
+  }
+  .date-panel {
+    padding: 0 14px 0 0;
+  }
+  .date-number {
+    font-size: 90px;
+    margin-top: 11px;
+  }
+  .date-month {
+    font-size: 26px;
+  }
+  .date-year {
+    font-size: 9px;
+    margin-top: 8px;
+  }
+  .event-details {
+    padding-left: 23px;
+  }
+  .detail-block + .detail-block {
+    margin-top: 22px;
+  }
+  .event-time {
+    font-size: 32px;
+  }
+  .event-time span {
+    font-size: 18px;
+  }
+  .detail-small {
+    font-size: 8px;
+    max-width: 125px;
+  }
+  .event-venue {
+    font-size: 26px;
+  }
+  .venue-address {
+    font-size: 9px;
+    line-height: 1.8;
+  }
+  .detail-block > .eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.13em;
+  }
+  .venue-section {
+    margin: 0 20px;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .venue-art {
+    margin: 27px 27px 0;
+    padding: 0;
+  }
+  .venue-arch {
+    height: 290px;
+    max-width: 280px;
+    padding: 25px 17px 20px;
+  }
+  .venue-art-label {
+    top: 81px;
+    font-size: 6px;
+  }
+  .venue-art-caption {
+    font-size: 12px;
+    margin-top: 14px;
+  }
+  .venue-copy {
+    align-items: center;
+    text-align: center;
+    padding: 38px 24px 42px;
+  }
+  .venue-copy h2 {
+    font-size: 44px;
+    margin-top: 11px;
+  }
+  .venue-subtitle {
+    font-size: 25px;
+  }
+  .venue-description {
+    font-size: 10px;
+    margin: 16px 0 25px;
+  }
+  .directions-note {
+    font-size: 8px;
+  }
+  .rsvp-section {
+    padding-top: 64px;
+    padding-bottom: 61px;
+  }
+  .rsvp-section > .ornamental-divider {
+    width: 220px;
+    margin-bottom: 24px;
+  }
+  .rsvp-section > .eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.15em;
+  }
+  .rsvp-section > h2 {
+    font-size: 38px;
+    margin: 13px 0 25px;
+  }
+  .rsvp-names {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 17px;
+    max-width: 350px;
+  }
+  .rsvp-names li {
+    font-size: clamp(19px, 5.5vw, 23px);
+    line-height: 1.15;
+    padding: 0 3px;
+  }
+  .rsvp-names li::after {
+    content: none;
+  }
+  .rsvp-names li:nth-child(odd):not(:last-child) {
+    border-right: 1px solid var(--line);
+  }
+  .rsvp-names li:last-child {
+    grid-column: 1/-1;
+    margin-top: 2px;
+  }
+  .rsvp-message {
+    font-size: 20px;
+    margin-top: 28px;
+    max-width: 345px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .closing {
+    padding: 0 24px 29px;
+  }
+  .closing-arabic {
+    font-size: 28px;
+  }
+  .closing-verse {
+    font-size: 24px;
+  }
+  .closing-dua {
+    font-size: 21px;
+    max-width: 325px;
+    margin-top: 28px;
+  }
+  .closing-family {
+    font-size: 25px;
+  }
+  .closing-date {
+    font-size: 6px;
+    letter-spacing: 0.13em;
+  }
+}
+@media (max-width: 359px) {
+  .masthead {
+    margin: 0 16px;
+    height: 54px;
+  }
+  .hero {
+    min-height: 505px;
+    padding: 53px 18px 62px;
+  }
+  .hero-frame {
+    inset: 14px 8px 41px;
+  }
+  .hero-botanical {
+    width: 94px;
+    top: 7px;
+  }
+  .bismillah {
+    font-size: 27px;
+    min-height: 43px;
+  }
+  .bismillah-translation {
+    font-size: 11px;
+  }
+  .hero-blessing {
+    margin-top: 15px;
+    font-size: 7px;
+  }
+  .hero-occasion {
+    margin-top: 14px;
+    font-size: 22px;
+  }
+  .couple-names {
+    font-size: 44px;
+    margin-top: 15px;
+  }
+  .couple-names .couple-ampersand {
+    font-size: 26px;
+    margin: 9px 0 11px;
+  }
+  .hero-content > .ornamental-divider {
+    margin: 17px auto 13px;
+  }
+  .hero-date {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .hero-date > span {
+    font-size: 15px;
+    padding-right: 8px;
+  }
+  .hero-location {
+    font-size: 7px;
+  }
+  .family-relation {
+    font-size: 8px;
+  }
+  .event-details {
+    padding-left: 16px;
+  }
+  .date-number {
+    font-size: 79px;
+  }
+  .date-month {
+    font-size: 23px;
+  }
+  .event-time {
+    font-size: 29px;
+  }
+  .event-venue {
+    font-size: 23px;
+  }
+  .rsvp-names li {
+    font-size: 19px;
+  }
+  .venue-section {
+    margin: 0 16px;
+  }
+  .venue-art {
+    margin: 23px 23px 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-botanical {
+    animation: botanical-breathe 14s ease-in-out infinite alternate;
+  }
+  @keyframes botanical-breathe {
+    from {
+      opacity: 0.84;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .button:active {
+    transform: translateY(1px);
+  }
+}

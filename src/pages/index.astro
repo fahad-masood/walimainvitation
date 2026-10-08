@@ -1,0 +1,152 @@
+---
+import '../styles/theme.css';
+import '../styles/invitation.css';
+import { invitation as event } from '../data/invitation';
+import Divider from '../components/Divider.astro';
+import Icon from '../components/Icon.astro';
+import Arch from '../components/Arch.astro';
+import serifFont from '../assets/fonts/cormorant-latin-500-normal.woff2?url';
+import arabicFont from '../assets/fonts/amiri-arabic-400-normal.woff2?url';
+
+const description = 'By the grace of Allah, join Mr. & Mrs. Masood Alam for the Daawat-e-Walima of Fahad Masood & Rahnuma Zarrin. Sunday, 15 November 2026, 6:00 PM IST onwards, Regal Palace, Asopur, Tanda.';
+const canonical = Astro.site ? new URL('/', Astro.site).href : undefined;
+const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-preview.png';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F7F4EC" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="description" content={description} />
+    <title>Daawat-e-Walima · Fahad Masood &amp; Rahnuma Zarrin</title>
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={arabicFont} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Daawat-e-Walima · Fahad & Rahnuma" />
+    <meta property="og:description" content="Sunday, 15 November 2026 · 6:00 PM IST onwards · Regal Palace, Asopur, Tanda. Your presence and duas would mean so much to us." />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={preview} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Daawat-e-Walima of Fahad & Rahnuma, 15 November 2026, framed by ivory flowers and an antique-gold arch." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daawat-e-Walima · Fahad & Rahnuma" />
+    <meta name="twitter:description" content="15 November 2026 · Regal Palace, Asopur, Tanda" />
+    <meta name="twitter:image" content={preview} />
+  </head>
+  <body>
+    <a class="skip-link" href="#invitation">Skip to invitation</a>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="F & R — Fahad and Rahnuma, back to top"><span>F</span><i>&</i><span>R</span></a>
+      <span class="masthead-occasion">A CELEBRATION OF LOVE &amp; BLESSINGS</span>
+      <a class="masthead-date" href="#celebration">15 <span>·</span> 11 <span>·</span> 2026</a>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="couple-names">
+        <div class="hero-frame"><Arch /></div>
+        <img class="hero-botanical hero-botanical--left" src="/art/botanical-spray.svg" width="320" height="400" alt="" fetchpriority="low" />
+        <img class="hero-botanical hero-botanical--right" src="/art/botanical-spray.svg" width="320" height="400" alt="" fetchpriority="low" />
+        <div class="hero-content">
+          <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <p class="bismillah-translation">In the Name of Allah, the Most Gracious, the Most Merciful.</p>
+          <p class="eyebrow hero-blessing">BY THE GRACE AND INFINITE BLESSINGS OF ALLAH (SWT)</p>
+          <p class="hero-occasion">Daawat-e-Walima</p>
+          <h1 id="couple-names" class="couple-names"><span>{event.groom}</span><span class="couple-ampersand">&amp;</span><span>{event.bride}</span></h1>
+          <Divider />
+          <p class="hero-date"><span>Sunday</span><time datetime={event.dateTime}>15 November 2026</time></p>
+          <p class="hero-location">REGAL PALACE <span>·</span> TANDA</p>
+        </div>
+        <a class="discover" href="#invitation"><span>THE INVITATION</span><Icon name="down" size={17}/></a>
+      </section>
+
+      <section id="invitation" class="formal-invitation section-pad" aria-labelledby="invitation-heading">
+        <p class="eyebrow">WITH LOVE, GRATITUDE &amp; JOY</p>
+        <h2 id="invitation-heading">An invitation from our hearts</h2>
+        <p class="invitation-opening">With hearts filled with gratitude and joy,</p>
+        <p class="host-names">{event.hosts}</p>
+        <p class="invitation-request">request the honour of your gracious presence at the</p>
+        <p class="formal-occasion">DAAWAT-E-WALIMA</p>
+        <p class="invitation-request">celebrating the blessed marriage of their beloved son</p>
+        <div class="family-composition">
+          <div><p class="family-name">{event.groom}</p><p class="family-relation">Beloved son of {event.groomFather}</p></div>
+          <span class="family-ampersand" aria-hidden="true">&amp;</span>
+          <div><p class="family-name">{event.bride}</p><p class="family-relation">Beloved daughter of {event.brideMother}</p></div>
+        </div>
+        <Divider />
+        <p class="invitation-message">With gratitude to Almighty Allah for His countless blessings, we invite you to share in our happiness as two hearts begin a beautiful journey together.</p>
+      </section>
+
+      <section class="verse-section" aria-label="A blessing from the Quran">
+        <div class="verse-corner verse-corner--left" aria-hidden="true"></div>
+        <div class="verse-corner verse-corner--right" aria-hidden="true"></div>
+        <p class="eyebrow">AFFECTION &amp; MERCY</p>
+        <p class="verse-arabic" lang="ar" dir="rtl">وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً</p>
+        <blockquote><p>“And He placed between you<br class="desktop-break" /> affection and mercy.”</p><cite>An excerpt from the translation of Surah Ar-Rum (30:21)</cite></blockquote>
+        <Divider light />
+      </section>
+
+      <section id="celebration" class="celebration section-pad" aria-labelledby="celebration-heading">
+        <p class="eyebrow">A JOYOUS EVENING AWAITS</p>
+        <h2 id="celebration-heading">The celebration</h2>
+        <p class="section-italic">In Shaa Allah</p>
+        <div class="event-composition">
+          <div class="date-panel"><span class="eyebrow">SUNDAY</span><span class="date-number">15</span><span class="date-month">November</span><span class="date-year">2 0 2 6</span></div>
+          <div class="event-details">
+            <div class="detail-block"><span class="eyebrow">THE TIME</span><p class="event-time">6:00 <span>PM</span></p><p class="detail-small">onwards · Indian Standard Time</p></div>
+            <div class="detail-block"><span class="eyebrow">THE VENUE</span><p class="event-venue">{event.venue}</p><p class="venue-address">Asopur, Tanda, Ambedkar Nagar<br />Uttar Pradesh, India</p></div>
+          </div>
+        </div>
+        <a class="button button--outline" href="/walima.ics" download="Fahad-and-Rahnuma-Walima.ics"><Icon name="calendar"/><span>Add to Calendar</span><Icon name="arrow" size={18}/></a>
+      </section>
+
+      <section id="venue" class="venue-section" aria-labelledby="venue-heading">
+        <div class="venue-art" aria-hidden="true">
+          <div class="venue-arch">
+            <span class="venue-art-label">AN EVENING TO REMEMBER</span>
+            <svg class="palace-linework" viewBox="0 0 420 220" fill="none">
+              <g stroke="currentColor" stroke-width="1">
+                <path d="M20 204h380M48 203V116h65v87m194 0v-87h65v87M113 203V88h194v115M170 203v-62c0-25 25-28 40-42 15 14 40 17 40 42v62M126 88h168M137 88V72c0-35 46-43 73-65 27 22 73 30 73 65v16M210 6V0M128 97h164M42 116h77m182 0h77M60 116V75h40v41m220 0V75h40v41M55 75c0-19 17-23 25-34 8 11 25 15 25 34m210 0c0-19 17-23 25-34 8 11 25 15 25 34M80 41V24m260 17V24"/>
+                <path d="M64 198v-38c0-9 8-13 16-18 8 5 16 9 16 18v38m228 0v-38c0-9 8-13 16-18 8 5 16 9 16 18v38M126 193V131c0-7 7-10 12-14 5 4 12 7 12 14v62m120 0V131c0-7 7-10 12-14 5 4 12 7 12 14v62M181 203v-58c0-16 18-23 29-33 11 10 29 17 29 33v58M203 201v-61m14 61v-61M20 212h380" opacity=".65"/>
+              </g>
+            </svg>
+            <span class="venue-art-caption">WITH YOU, THE EVENING IS COMPLETE</span>
+          </div>
+        </div>
+        <div class="venue-copy">
+          <p class="eyebrow">JOIN US AT</p>
+          <h2 id="venue-heading">Regal Palace</h2>
+          <p class="venue-subtitle">Asopur, Tanda</p>
+          <p class="venue-description">Ambedkar Nagar, Uttar Pradesh, India<br />We look forward to welcoming you.</p>
+          <a class="button button--solid" href={event.directions} target="_blank" rel="noopener noreferrer"><Icon name="pin"/><span>Get Directions</span><Icon name="arrow" size={18}/></a>
+          <span class="directions-note">Opens in Google Maps</span>
+        </div>
+      </section>
+
+      <section class="rsvp-section section-pad" aria-labelledby="rsvp-heading">
+        <Divider />
+        <p class="eyebrow">WITH THE COMPLIMENTS OF OUR FAMILY</p>
+        <h2 id="rsvp-heading">R.S.V.P.</h2>
+        <ul class="rsvp-names" role="list">{event.rsvp.map(name => <li>{name}</li>)}</ul>
+        <p class="rsvp-message">Your gracious presence and heartfelt duas will make<br class="desktop-break" /> this joyous celebration truly memorable.</p>
+      </section>
+
+      <footer class="closing">
+        <Divider />
+        <p class="closing-arabic" lang="ar" dir="rtl">وَخَلَقْنَاكُمْ أَزْوَاجًا</p>
+        <p class="closing-verse">“And We created you in pairs.”</p>
+        <p class="closing-citation">A translation of Surah An-Naba (78:8)</p>
+        <p class="closing-dua">May Allah bless this union with lasting love,<br class="desktop-break" /> mercy, peace, and barakah. Ameen.</p>
+        <p class="closing-regards">With warm regards,</p>
+        <p class="closing-family">Mr. &amp; Mrs. Masood Alam &amp; Family</p>
+        <span class="closing-monogram" aria-hidden="true">F <i>&amp;</i> R</span>
+        <p class="closing-date">DAAWAT-E-WALIMA <span>·</span> 15 NOVEMBER 2026</p>
+      </footer>
+    </main>
+  </body>
+</html>

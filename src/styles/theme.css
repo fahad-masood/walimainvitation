@@ -1,0 +1,206 @@
+/* Portable visual identity. Reuse these tokens and the ornamental components. */
+@font-face {
+  font-family: Cormorant;
+  src: url("../assets/fonts/cormorant-latin-400-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Cormorant;
+  src: url("../assets/fonts/cormorant-latin-500-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Cormorant;
+  src: url("../assets/fonts/cormorant-latin-400-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Amiri;
+  src: url("../assets/fonts/amiri-arabic-400-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  --ivory: #f7f4ec;
+  --emerald: #183b36;
+  --gold: #b4965d;
+  --gold-text: color-mix(in srgb, var(--gold) 55%, var(--emerald));
+  --powder: #e6eff1;
+  --white: #fffcf7;
+  --ink: #272c2a;
+  --muted: #53635c;
+  --line: rgba(180, 150, 93, 0.42);
+  --serif: "Cormorant", Georgia, "Times New Roman", serif;
+  --sans: "Inter", Arial, sans-serif;
+  --arabic: "Amiri", "Noto Naskh Arabic", "Times New Roman", serif;
+  --page-width: 1120px;
+  --section-space: 100px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--emerald);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+a:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 6px;
+}
+img,
+svg {
+  display: block;
+}
+p,
+h1,
+h2,
+blockquote {
+  margin: 0;
+}
+h1,
+h2 {
+  font-weight: 400;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.12;
+}
+::selection {
+  background: var(--powder);
+  color: var(--emerald);
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.21em;
+  line-height: 1.9;
+  text-transform: uppercase;
+}
+.section-pad {
+  padding: var(--section-space) 24px;
+}
+.section-italic {
+  font-family: var(--serif);
+  font-size: 25px;
+  font-style: italic;
+}
+.ornamental-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: var(--gold);
+  margin: 24px auto;
+  width: 170px;
+}
+.ornamental-divider > span {
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.65;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  min-height: 54px;
+  padding: 15px 23px;
+  font-size: 11px;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  border: 1px solid var(--emerald);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+.button--outline {
+  background: transparent;
+}
+.button--outline:hover {
+  background: var(--emerald);
+  color: var(--white);
+}
+.button--solid {
+  background: var(--emerald);
+  color: var(--white);
+}
+.button--solid:hover {
+  background: #234e47;
+  transform: translateY(-2px);
+}
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  transform: translateY(-150%);
+  z-index: 10;
+  background: var(--white);
+  padding: 14px;
+  font-size: 14px;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+@media (max-width: 600px) {
+  :root {
+    --section-space: 68px;
+  }
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.17em;
+  }
+  .button {
+    min-height: 52px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
