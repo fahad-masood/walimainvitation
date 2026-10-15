@@ -1,11 +1,17 @@
 ---
 import '../styles/theme.css';
 import '../styles/invitation.css';
+import '../styles/names.css';
+import '../styles/identity.css';
+import EntranceDoor from '../components/EntranceDoor.astro';
+import FloralCorners from '../components/FloralCorners.astro';
+import InvitationMusic from '../components/InvitationMusic.astro';
+import Botanical from '../components/Botanical.astro';
+import Calendar from '../components/Calendar.astro';
 import { invitation as event } from '../data/invitation';
 import Divider from '../components/Divider.astro';
 import Icon from '../components/Icon.astro';
 import Arch from '../components/Arch.astro';
-import serifFont from '../assets/fonts/cormorant-latin-500-normal.woff2?url';
 import arabicFont from '../assets/fonts/amiri-arabic-400-normal.woff2?url';
 
 const description = 'By the grace of Allah, join Mr. & Mrs. Masood Alam for the Daawat-e-Walima of Fahad Masood & Rahnuma Zarrin. Sunday, 15 November 2026, 6:00 PM IST onwards, Regal Palace, Asopur, Tanda.';
@@ -17,13 +23,13 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#F7F4EC" />
+    <meta name="theme-color" content="#4f181d" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="description" content={description} />
     <title>Daawat-e-Walima · Fahad Masood &amp; Rahnuma Zarrin</title>
     {canonical && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/great-vibes-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={arabicFont} as="font" type="font/woff2" crossorigin />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_IN" />
@@ -34,13 +40,15 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Daawat-e-Walima of Fahad & Rahnuma, 15 November 2026, framed by ivory flowers and an antique-gold arch." />
+    <meta property="og:image:alt" content="Daawat-e-Walima of Fahad & Rahnuma, 15 November 2026, framed by textured maroon-and-green roses and a delicate arch." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Daawat-e-Walima · Fahad & Rahnuma" />
     <meta name="twitter:description" content="15 November 2026 · Regal Palace, Asopur, Tanda" />
     <meta name="twitter:image" content={preview} />
   </head>
   <body>
+    <EntranceDoor>
+    <div class="page-frame" aria-hidden="true"></div>
     <a class="skip-link" href="#invitation">Skip to invitation</a>
     <header class="masthead">
       <a class="brand" href="#top" aria-label="F & R — Fahad and Rahnuma, back to top"><span>F</span><i>&</i><span>R</span></a>
@@ -49,9 +57,8 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
     </header>
     <main id="top">
       <section class="hero" aria-labelledby="couple-names">
-        <div class="hero-frame"><Arch /></div>
-        <img class="hero-botanical hero-botanical--left" src="/art/botanical-spray.svg" width="320" height="400" alt="" fetchpriority="low" />
-        <img class="hero-botanical hero-botanical--right" src="/art/botanical-spray.svg" width="320" height="400" alt="" fetchpriority="low" />
+        <Arch />
+        <FloralCorners />
         <div class="hero-content">
           <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
           <p class="bismillah-translation">In the Name of Allah, the Most Gracious, the Most Merciful.</p>
@@ -68,15 +75,16 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
       <section id="invitation" class="formal-invitation section-pad" aria-labelledby="invitation-heading">
         <p class="eyebrow">WITH LOVE, GRATITUDE &amp; JOY</p>
         <h2 id="invitation-heading">An invitation from our hearts</h2>
+        <img class="couple-illustration" src="/illustrations/couple.webp" width="640" height="686" loading="lazy" decoding="async" alt="An illustrated groom beside his veiled bride with a flowing burgundy train, seen from behind." />
         <p class="invitation-opening">With hearts filled with gratitude and joy,</p>
         <p class="host-names">{event.hosts}</p>
         <p class="invitation-request">request the honour of your gracious presence at the</p>
         <p class="formal-occasion">DAAWAT-E-WALIMA</p>
         <p class="invitation-request">celebrating the blessed marriage of their beloved son</p>
         <div class="family-composition">
-          <div><p class="family-name">{event.groom}</p><p class="family-relation">Beloved son of {event.groomFather}</p></div>
+          <div><p class="family-name">{event.groom}</p><p class="family-relation">Beloved son of <span class="parent-name">{event.groomFather}</span></p></div>
           <span class="family-ampersand" aria-hidden="true">&amp;</span>
-          <div><p class="family-name">{event.bride}</p><p class="family-relation">Beloved daughter of {event.brideMother}</p></div>
+          <div><p class="family-name">{event.bride}</p><p class="family-relation">Beloved daughter of <span class="parent-name">{event.brideMother}</span></p></div>
         </div>
         <Divider />
         <p class="invitation-message">With gratitude to Almighty Allah for His countless blessings, we invite you to share in our happiness as two hearts begin a beautiful journey together.</p>
@@ -95,12 +103,15 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
         <p class="eyebrow">A JOYOUS EVENING AWAITS</p>
         <h2 id="celebration-heading">The celebration</h2>
         <p class="section-italic">In Shaa Allah</p>
+        <div class="celebration-layout">
+        <Calendar />
         <div class="event-composition">
           <div class="date-panel"><span class="eyebrow">SUNDAY</span><span class="date-number">15</span><span class="date-month">November</span><span class="date-year">2 0 2 6</span></div>
           <div class="event-details">
             <div class="detail-block"><span class="eyebrow">THE TIME</span><p class="event-time">6:00 <span>PM</span></p><p class="detail-small">onwards · Indian Standard Time</p></div>
             <div class="detail-block"><span class="eyebrow">THE VENUE</span><p class="event-venue">{event.venue}</p><p class="venue-address">Asopur, Tanda, Ambedkar Nagar<br />Uttar Pradesh, India</p></div>
           </div>
+        </div>
         </div>
         <a class="button button--outline" href="/walima.ics" download="Fahad-and-Rahnuma-Walima.ics"><Icon name="calendar"/><span>Add to Calendar</span><Icon name="arrow" size={18}/></a>
       </section>
@@ -137,6 +148,8 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
       </section>
 
       <footer class="closing">
+        <Botanical class="closing-botanical closing-botanical-left" />
+        <Botanical class="closing-botanical closing-botanical-right" />
         <Divider />
         <p class="closing-arabic" lang="ar" dir="rtl">وَخَلَقْنَاكُمْ أَزْوَاجًا</p>
         <p class="closing-verse">“And We created you in pairs.”</p>
@@ -148,5 +161,7 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
         <p class="closing-date">DAAWAT-E-WALIMA <span>·</span> 15 NOVEMBER 2026</p>
       </footer>
     </main>
+    <InvitationMusic />
+    </EntranceDoor>
   </body>
 </html>

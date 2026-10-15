@@ -1,6 +1,6 @@
 # Daawat-e-Walima · Fahad & Rahnuma
 
-A static, mobile-first invitation for Sunday, 15 November 2026 at 6:00 PM IST onwards, hosted by Mr. & Mrs. Masood Alam at Regal Palace, Asopur, Tanda. Built with Astro 7.3.8, self-hosted fonts, local SVG artwork, and no client JavaScript.
+A static, mobile-first invitation for Sunday, 15 November 2026 at 6:00 PM IST onwards, hosted by Mr. & Mrs. Masood Alam at Regal Palace, Asopur, Tanda. Built with Astro 7.3.8, self-hosted fonts, detailed local floral artwork, and small scripts for the door entrance and music.
 
 ## Develop and verify
 
@@ -39,15 +39,17 @@ The invitation requests that search engines do not index or archive it. This is 
 
 - Event data and all seven official RSVP names: `src/data/invitation.ts`.
 - Page composition and metadata: `src/pages/index.astro`.
-- Portable colors, fonts, spacing, and controls: `src/styles/theme.css`.
-- Invitation layout and responsive styling: `src/styles/invitation.css`.
+- Shared maroon-and-green tokens: `src/styles/tokens.css`; fonts and controls: `src/styles/theme.css`.
+- Invitation layout: `src/styles/invitation.css`; companion identity and responsive composition: `src/styles/identity.css`; cursive names: `src/styles/names.css`.
 - Reusable architecture and ornaments: `src/components/` and `public/art/`.
 - Calendar: `public/walima.ics`; social image: `public/og-preview.png`.
 
-[Design system](docs/design-system.md) documents the shared identity for a separately developed companion invitation. No companion implementation is present to compare; reuse the documented assets and components unchanged to preserve the identity. [Content verification](docs/content-verification.md) records wording, Quran references, and calendar details. [Font licenses](docs/font-licenses/README.md) include redistribution notices and the exact Arabic font subset coverage.
+[Design system](docs/design-system.md) documents the shared identity for a separately developed companion invitation. The identity matches the companion invitation’s textured roses, Mughal doors, burgundy velvet, cursive names, and November calendar. All existing Walima wording and event fields are retained; `tests/fixtures/approved-content.json` records the original content for regression checks. [Content verification](docs/content-verification.md) records wording, Quran references, and calendar details. [Font licenses](docs/font-licenses/README.md) include redistribution notices and the exact Arabic font subset coverage.
 
 [Validation results](docs/validation.md) record production tests, responsive browser checks, and the measured mobile performance profile.
 
-Keep event data, the static calendar, and social preview synchronized when changing supplied details. If Arabic wording changes, regenerate the font subset with the complete new text as documented in the font notes.
+The music starts in the door-opening tap, loops the supplied local recording, and can be paused. Audio does not download before activation. Native disclosure opens the full invitation with JavaScript disabled. Reduced-motion preferences skip door motion and the calendar-heart animation.
+
+The existing event data and calendar file remain byte-for-byte unchanged. Keep event data, the static calendar, and social preview synchronized when changing supplied details. If Arabic wording changes, regenerate the font subset with the complete new text as documented in the font notes.
 
 To regenerate the preview, run `node scripts/generate-preview.mjs` with Chromium installed (`CHROMIUM_BIN` can specify its executable). The generator uses Node's built-in browser protocol support and the same local fonts/artwork; no extra npm package is needed.

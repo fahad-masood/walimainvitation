@@ -1,0 +1,63 @@
+---
+import { invitation as event } from '../data/invitation';
+const selectedDay = Number(event.dateTime.slice(8, 10));
+const selectedDate = event.dateTime.slice(0, 10);
+const weekdays = [
+  ['SUN', 'Sunday'], ['MON', 'Monday'], ['TUE', 'Tuesday'],
+  ['WED', 'Wednesday'], ['THU', 'Thursday'], ['FRI', 'Friday'], ['SAT', 'Saturday'],
+];
+// November 2026 starts on Sunday and has 30 days.
+const weeks = Array.from({ length: 5 }, (_, week) =>
+  Array.from({ length: 7 }, (_, weekday) => {
+    const day = week * 7 + weekday + 1;
+    return day <= 30 ? day : null;
+  }),
+);
+---
+<div class="calendar-stationery">
+  <table class="wedding-calendar">
+    <caption>November <span>2026</span></caption>
+    <thead><tr>{weekdays.map(([short, full]) => <th scope="col"><abbr title={full}>{short}</abbr></th>)}</tr></thead>
+    <tbody>
+      {weeks.map((week) => <tr>{week.map((day) =>
+        <td class:list={{ 'wedding-day': day === selectedDay }}>
+          {day === selectedDay ? <div class="heart-date">
+            <svg class="calendar-heart" width="51" height="49" viewBox="0 0 52 50" fill="none" aria-hidden="true"><path d="M26 46 6.7 27C-7 13 9-4 21 7l5 4 5-4c12-11 28 6 14.3 20L26 46Z" stroke="currentColor" stroke-width="1.4"/></svg>
+            <time datetime={selectedDate}>{selectedDay}<span class="visually-hidden"> November 2026, {event.occasion}</span></time>
+          </div> : day}
+        </td>,
+      )}</tr>)}
+    </tbody>
+  </table>
+
+</div>
+
+<style>
+  .calendar-stationery { width: min(100%, 420px); margin: 27px auto 34px; padding: 26px 22px 24px; border: var(--hairline); outline: var(--hairline); outline-offset: -7px; }
+  .wedding-calendar { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  caption { font-family: var(--serif); font-size: 34px; line-height: 1.2; padding-bottom: 23px; }
+  caption span { font-style: italic; }
+  th { padding: 0 0 12px; font-family: var(--sans); font-size: 8px; font-weight: 500; letter-spacing: .12em; color: var(--green-muted); }
+  abbr { text-decoration: none; }
+  td { height: 49px; padding: 0; font-family: var(--serif); font-size: 24px; line-height: 1; text-align: center; font-variant-numeric: lining-nums tabular-nums; }
+  .heart-date { position: relative; width: 51px; height: 49px; max-width: 100%; margin: auto; display: grid; place-items: center; }
+  .heart-date time { padding-bottom: 4px; font-weight: 600; }
+  .calendar-heart { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--maroon); }
+  .calendar-details { margin: 21px 0 0; padding-top: 20px; border-top: var(--hairline); font-size: 10px; line-height: 1.8; color: var(--green-muted); }
+  .calendar-details > span { display: block; margin-top: 5px; font-family: var(--serif); color: var(--maroon); font-size: 22px; }
+  .calendar-timezone { font-family: var(--sans); font-size: 8px; color: var(--green-muted); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .calendar-heart { animation: heart-blink 1s ease-in-out infinite; }
+    @keyframes heart-blink { 0%, 100% { opacity: 1; } 50% { opacity: .18; } }
+  }
+  @media (max-width: 600px) {
+    .calendar-stationery { padding: 25px 15px 23px; margin-top: 24px; }
+    caption { font-size: 32px; padding-bottom: 20px; }
+    th { font-size: 7px; letter-spacing: .08em; }
+    td { height: 43px; font-size: 22px; }
+    .heart-date { height: 43px; width: 45px; }
+    .calendar-details { font-size: 9px; }
+    .calendar-timezone { font-size: 7px; }
+  }
+</style>

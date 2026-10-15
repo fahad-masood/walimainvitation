@@ -1,32 +1,23 @@
 # Validation record
 
-Validated on 9 October 2026 with Node.js 24.19.0, Astro 7.3.8, Chromium 151, and Lighthouse 13.5.0.
+The matching design update was checked with Node.js 24, Astro 7.3.8, and Chromium.
 
-## Production checks
+## Production and content checks
 
-- Clean, repeatable `npm ci`, static production build, and all seven Node tests passed. There are no skipped tests.
-- Tests exercise the generated HTML/assets, approved event and family details, all seven ordered RSVP names, native guest actions, Arabic passages and attributions, social image dimensions, and calendar encoding/timezone.
-- The calendar downloads with JavaScript disabled. It begins Sunday, 15 November 2026 at 18:00 Asia/Kolkata (12:30 UTC), without an invented end time.
-- Browser resource inspection found no third-party requests. There is no client JavaScript, hydration, map iframe, or invitation-sharing control.
-- The host headers were exercised through a local static server: strict CSP caused no console errors, fonts and CSS loaded, the keyboard skip link worked, and the calendar returned `text/calendar` with an attachment disposition.
-- A build with a test-origin fixture produced correct absolute canonical and social image URLs. The final build was restored without that fixture; supply the real `SITE_URL` at deployment.
-- npm's dependency audit reported zero known vulnerabilities at validation time.
+- `npm ci`, static production build, and all eight Node tests pass without skipped tests.
+- A baseline captured before the update records the text of every original invitation section and the existing social metadata. Browser checks compare those sections exactly, including the host wording, name order, both Quran excerpts and attributions, and all seven RSVP names in order.
+- SHA-256 comparisons verify that `src/data/invitation.ts`, `public/walima.ics`, and the shipped calendar retain their original bytes. The event remains Sunday, 15 November 2026, 6:00 PM IST onwards, at Regal Palace, Asopur, Tanda, Ambedkar Nagar, Uttar Pradesh, India.
+- The existing calendar uses Asia/Kolkata and has no invented end time. Directions and calendar links retain their original destinations and work without JavaScript.
+- The new social PNG is 1200 × 630 and retains the original preview wording, event date, names, and venue.
 
-## Layout checks
+## Browser checks
 
-Real Chromium renders were inspected at 320, 360, 375, 390, 430, 768, and 1440 pixels. No horizontal overflow or console errors occurred. Names and the date were visible in the initial viewport on the tested phones (320×568, 360×640, 375×667, 390×844, and 430×932). The RSVP names fit individually without wrapping inside the mobile two-column arrangement. Important content and links remained available with JavaScript disabled and with font downloads blocked.
+Chromium checks cover 320×568, 360×740, 375×812, 390×844, 430×932, 768×1024, and 1440×1000. No horizontal overflow, console errors, or third-party requests occurred. The couple’s names and date fit the first invitation viewport after the door opens. The four rose clusters and couple illustration decode successfully.
 
-The static social PNG was visually inspected and is exactly 1200×630. Arabic shaping was compared against the source fonts after subsetting; ligatures, diacritics, outlines, and positioning matched.
+With the production Content Security Policy injected, the door starts closed, the recording remains paused without an audio download, and the opening tap reveals the invitation and starts playback. Pause works. Reduced motion skips the door transition and heart animation; ordinary motion blinks the heart on 15 November each second. Native disclosure, directions, and the calendar download remain functional with JavaScript disabled.
 
-## Mobile performance
+Mobile and desktop screenshots were inspected for the hero, family invitation, date/calendar section, closing passage, and social preview. The existing Amiri subset is retained for all three Arabic passages. Short phone screens use a compact music control positioned clear of the hero date.
 
-The production preview scored **100 Performance / 100 Accessibility / 100 Best Practices** on the standard simulated mobile Lighthouse profile (4× CPU slowdown and mobile network throttling).
+## Performance scope
 
-| Metric | Result |
-| --- | --- |
-| First Contentful Paint | 1.4 s |
-| Largest Contentful Paint | 1.7 s |
-| Cumulative Layout Shift | 0 |
-| Total Blocking Time | 0 ms |
-
-These are local production-build measurements. Actual hosting, device, connection, and social-crawler behavior should be checked after deployment. The separate companion implementation is not in this checkout; use the documented portable design system to reproduce this identity there.
+All artwork, fonts, audio, styles, and scripts are local. The decorative rose clusters reuse one 48 KB image, content needs no hydration, and the audio does not download before opening. No backend, map iframe, third-party fonts, video, or sharing SDK is introduced. The earlier Lighthouse record described the previous design; no new Lighthouse score is claimed for this update. Hosting and the actual WhatsApp preview should be checked after deployment.

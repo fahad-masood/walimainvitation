@@ -1,0 +1,78 @@
+---
+import { invitationMusic } from '../data/music';
+---
+
+{invitationMusic.audioSource && (
+  <div class="invitation-music" data-invitation-music data-track-title={invitationMusic.title}>
+    <audio data-music-audio src={invitationMusic.audioSource} preload="none" loop></audio>
+    <button class="music-toggle" data-music-toggle type="button" aria-pressed="false" aria-label={`Play music: ${invitationMusic.title}`} hidden>
+      <svg data-music-play width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 18V6l11-2v12M9 9l11-2" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+        <ellipse cx="5.5" cy="18" rx="3.5" ry="2.5" stroke="currentColor" stroke-width="1.5" />
+        <ellipse cx="16.5" cy="16" rx="3.5" ry="2.5" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+      <svg data-music-pause width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" hidden>
+        <path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      </svg>
+      <span data-music-label>Play music</span>
+    </button>
+    <span class="music-status" data-music-status role="status" aria-live="polite" aria-atomic="true"></span>
+    <script>
+      import '../scripts/invitation-music';
+    </script>
+  </div>
+)}
+
+<style>
+  .invitation-music {
+    position: fixed;
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+    z-index: 20;
+  }
+  .music-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: calc(100vw - 40px);
+    border: 1px solid #b5c4ac;
+    border-radius: 999px;
+    padding: 12px 17px;
+    background-color: var(--maroon, #4d0000);
+    background-image: var(--velvet-texture);
+    background-size: cover;
+    background-position: center;
+    color: #e1e7da;
+    font: 500 12px/1.4 var(--sans, sans-serif);
+    cursor: pointer;
+    box-shadow: 0 3px 18px #4d000026;
+    touch-action: manipulation;
+  }
+  .music-toggle:hover { background-color: color-mix(in srgb, var(--maroon, #4d0000) 80%, #000); }
+  .music-toggle:focus-visible { outline: 2px solid #b5c4ac; outline-offset: 4px; }
+  .music-toggle:disabled { cursor: default; }
+  .invitation-music [hidden] { display: none !important; }
+  .music-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) and (max-height: 640px) {
+    .invitation-music { bottom: max(110px, env(safe-area-inset-bottom)); }
+    .music-toggle { width: 50px; padding: 0; }
+    [data-music-label] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+  }
+</style>

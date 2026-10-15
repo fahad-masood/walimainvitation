@@ -1,0 +1,44 @@
+---
+const corners = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+---
+<div class="floral-corners" aria-hidden="true">
+  {corners.map((corner) => (
+    <img
+      class:list={['floral-corner', `floral-corner-${corner}`]}
+      src="/illustrations/floral-corner.webp"
+      width="512"
+      height="512"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
+      draggable="false"
+    />
+  ))}
+</div>
+
+<style>
+  .floral-corners { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .floral-corner { position: absolute; width: clamp(120px, 13vw, 180px); height: auto; user-select: none; }
+  .floral-corner-top-left { top: 13px; left: 21px; }
+  .floral-corner-top-right { top: 13px; right: 21px; transform: rotate(90deg); }
+  .floral-corner-bottom-right { right: 21px; bottom: 96px; transform: rotate(180deg); }
+  .floral-corner-bottom-left { left: 21px; bottom: 96px; transform: rotate(270deg); }
+  @media (min-width: 851px) {
+    .floral-corner-bottom-left { left: 64px; }
+    .floral-corner-bottom-right { right: 64px; }
+  }
+  @media (max-width: 600px) {
+    .floral-corner { width: 96px; }
+    .floral-corner-top-left { top: 12px; left: 9px; }
+    .floral-corner-top-right { top: 12px; right: 9px; }
+    .floral-corner-bottom-right { right: 9px; bottom: 96px; }
+    .floral-corner-bottom-left { left: 9px; bottom: 96px; }
+  }
+  @media (max-width: 359px) {
+    .floral-corner { width: 84px; }
+  }
+  @media (max-width: 600px) and (max-height: 640px) {
+    .floral-corner-bottom-left, .floral-corner-bottom-right { width: 68px; bottom: 170px; }
+  }
+</style>

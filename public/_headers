@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   X-Frame-Options: DENY
@@ -29,3 +29,15 @@
   Content-Type: text/calendar; charset=utf-8
   Content-Disposition: attachment; filename="Fahad-and-Rahnuma-Walima.ics"
   Cache-Control: public, max-age=3600
+
+/fonts/*
+  Cache-Control: public, max-age=604800
+
+/illustrations/*
+  Cache-Control: public, max-age=604800
+
+/textures/*
+  Cache-Control: public, max-age=604800
+
+/audio/*
+  Cache-Control: public, max-age=604800

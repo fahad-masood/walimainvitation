@@ -209,7 +209,7 @@
   overflow: hidden;
 }
 .verse-section > .eyebrow {
-  color: #d7c6a0;
+  color: var(--sage);
 }
 .verse-arabic {
   font: 400 34px/1.8 var(--arabic);
@@ -223,7 +223,7 @@
   margin: 24px auto 0;
   font-size: 9px;
   font-style: normal;
-  color: #d4ddd7;
+  color: var(--sage-light);
   line-height: 1.8;
 }
 .verse-section > .ornamental-divider {
@@ -233,9 +233,9 @@
   position: absolute;
   inset: 20px auto 20px 20px;
   width: 70px;
-  border-left: 1px solid rgba(180, 150, 93, 0.6);
-  border-top: 1px solid rgba(180, 150, 93, 0.6);
-  border-bottom: 1px solid rgba(180, 150, 93, 0.6);
+  border-left: 1px solid color-mix(in srgb, var(--maroon) 45%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--maroon) 45%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon) 45%, transparent);
 }
 .verse-corner--right {
   left: auto;
@@ -247,9 +247,9 @@
   position: absolute;
   inset: 8px auto 8px 8px;
   width: 18px;
-  border-left: 1px solid rgba(180, 150, 93, 0.3);
-  border-top: 1px solid rgba(180, 150, 93, 0.3);
-  border-bottom: 1px solid rgba(180, 150, 93, 0.3);
+  border-left: 1px solid color-mix(in srgb, var(--maroon) 20%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--maroon) 20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon) 20%, transparent);
 }
 .celebration {
   text-align: center;

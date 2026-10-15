@@ -1,0 +1,21 @@
+/* Shared stationery identity. All colors are shades of maroon or green. */
+:root {
+  color-scheme: light;
+  --paper: #edf1e8;
+  --paper-deep: #e2e9dc;
+  --maroon: #4f181d;
+  --maroon-soft: #80515d;
+  --maroon-line: #b28f97;
+  --forest: #183e34;
+  --forest-deep: #123027;
+  --green-muted: #536958;
+  --sage: #b8c8ad;
+  --sage-light: #dce5d5;
+  --serif: 'Cormorant Garamond', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --arabic: 'Amiri', 'Traditional Arabic', 'Noto Naskh Arabic', serif;
+  --page-width: 1280px;
+  --section-space: clamp(4.5rem, 9vw, 8rem);
+  --hairline: 1px solid color-mix(in srgb, var(--maroon) 23%, transparent);
+  --velvet-texture: url('/textures/velvet.webp');
+}

@@ -1,4 +1,5 @@
 import test from "node:test";
+import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -154,7 +155,7 @@ test("all seven RSVP names are visible text in the supplied order", () => {
   assert.doesNotMatch(listing, /\b(?:hidden|aria-hidden="true")\b/i);
 });
 
-test("directions and calendar use accessible, native links and no sharing UI", () => {
+test("directions and calendar remain native links without sharing UI", () => {
   const maps = anchors.find((anchor) => anchor.text === "Get Directions");
   assert.ok(maps, "The directions action needs a visible accessible name");
   assert.equal(maps.href, directions);
@@ -171,10 +172,18 @@ test("directions and calendar use accessible, native links and no sharing UI", (
     html,
     /share invitation|whatsapp|wa\.me|api\.whatsapp|navigator\.share|tel:|mailto:/i,
   );
+  for (const script of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
+    assert.ok(attributes(script[1]).src?.startsWith('/_astro/'), 'Use only self-hosted entrance/music scripts.');
+    assert.equal(script[2].trim(), '', 'Do not require inline scripts.');
+  }
+  const audio = html.match(/<audio\b[^>]*>/)?.[0];
+  assert.ok(audio, 'Include the requested companion music.');
+  assert.equal(attributes(audio).preload, 'none', 'Do not download audio before opening.');
+  assert.equal(attributes(audio).src, '/audio/lam-yati-nazeero.mp3');
   assert.doesNotMatch(
     html,
-    /<(?:form|input|iframe|audio|video|script|astro-island)\b|\bonclick\s*=/i,
-    "Content and actions must work without scripts, hydration, or a backend",
+    /<(?:form|input|iframe|video|astro-island)\b|\bonclick\s*=/i,
+    "Invitation content and actions remain static without hydration or a backend",
   );
 });
 
@@ -260,12 +269,11 @@ test("fonts and render resources are self-hosted and the shared palette is prese
     await Promise.all(cssPaths.map((path) => readFile(path, "utf8")))
   ).join("\n");
   for (const color of [
-    "#F7F4EC",
-    "#183B36",
-    "#B4965D",
-    "#E6EFF1",
-    "#FFFCF7",
-    "#272C2A",
+    "#edf1e8",
+    "#4f181d",
+    "#183e34",
+    "#b8c8ad",
+    "#b28f97",
   ]) {
     assert.ok(
       css.toLowerCase().includes(color.toLowerCase()),
@@ -386,4 +394,22 @@ test("the calendar is correctly folded UTF-8 with escaped text and an exact loca
     }).format(instant),
     "18:00",
   );
+});
+
+
+test("every original section, metadata value, event field, and calendar byte is preserved", async () => {
+  const approved = JSON.parse(await readFile(resolve(root, 'tests/fixtures/approved-content.json'), 'utf8'));
+  const stripped = html
+    .replace(/<(script|style|svg)\b[^>]*>[\s\S]*?<\/\1>/gi, '')
+    .replace(/<span\b[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/span>/gi, '')
+    .replace(/<[^>]*>/g, '');
+  const compact = value => decodeEntities(value).replace(/\s+/g, '');
+  for (const section of approved.sections) {
+    assert.ok(compact(stripped).includes(compact(section.text)), `Preserve all original text and ordering in ${section.selector}`);
+  }
+  for (const [key, value] of Object.entries(approved.metadata)) assert.equal(metadata(key), value, `Preserve ${key} wording.`);
+  assert.equal(decodeEntities(html.match(/<title>(.*?)<\/title>/)[1]), approved.title);
+  for (const [key, path] of [['dataHash', 'src/data/invitation.ts'], ['calendarHash', 'public/walima.ics'], ['calendarHash', 'dist/walima.ics']]) {
+    assert.equal(createHash('sha256').update(await readFile(resolve(root, path))).digest('hex'), approved[key], `Keep ${path} byte-for-byte unchanged.`);
+  }
 });

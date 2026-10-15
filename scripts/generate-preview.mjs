@@ -13,35 +13,36 @@ import { tmpdir } from 'node:os';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const output = join(root, 'public', 'og-preview.png');
 const font = async (name) => (await readFile(join(root, 'src/assets/fonts', name))).toString('base64');
-const [serif, italic, sans, arabic, floral] = await Promise.all([
+const [serif, italic, sans, arabic] = await Promise.all([
   font('cormorant-latin-500-normal.woff2'),
   font('cormorant-latin-400-italic.woff2'),
   font('inter-latin-500-normal.woff2'),
   font('amiri-arabic-400-normal.woff2'),
-  readFile(join(root, 'public/art/botanical-spray.svg')),
 ]);
-const botanical = `data:image/svg+xml;base64,${floral.toString('base64')}`;
+const botanical = `data:image/webp;base64,${(await readFile(join(root, 'public/illustrations/floral-corner.webp'))).toString('base64')}`;
+const cursive = (await readFile(join(root, 'public/fonts/great-vibes-latin.woff2'))).toString('base64');
 const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Daawat-e-Walima</title>
 <style>
+@font-face{font-family:Names;src:url(data:font/woff2;base64,${cursive}) format('woff2');font-weight:400}
 @font-face{font-family:Cormorant;src:url(data:font/woff2;base64,${serif}) format('woff2');font-weight:500}
 @font-face{font-family:Cormorant;src:url(data:font/woff2;base64,${italic}) format('woff2');font-weight:400;font-style:italic}
 @font-face{font-family:Inter;src:url(data:font/woff2;base64,${sans}) format('woff2');font-weight:500}
 @font-face{font-family:Amiri;src:url(data:font/woff2;base64,${arabic}) format('woff2')}
-*{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#F7F4EC;color:#183B36}
+*{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#edf1e8;color:#4f181d}
 body{-webkit-font-smoothing:antialiased;position:relative;text-align:center}
-.border{position:absolute;inset:20px;border:1px solid #B4965D;opacity:.62}.border.inner{inset:28px;opacity:.25}
-.architecture{position:absolute;inset:0;width:1200px;height:630px;fill:none;stroke:#B4965D;stroke-width:1;opacity:.57}
-.floral{position:absolute;top:27px;left:29px;width:313px;height:391px}.floral.right{left:auto;right:29px;transform:scaleX(-1)}
+.border{position:absolute;inset:20px;border:1px solid #b28f97;opacity:.62}.border.inner{inset:28px;opacity:.25}
+.architecture{position:absolute;inset:0;width:1200px;height:630px;fill:none;stroke:#b28f97;stroke-width:1;opacity:.57}
+.floral{position:absolute;top:27px;left:29px;width:155px;height:155px}.floral.right{left:auto;right:29px;transform:rotate(90deg)}.floral.bottom-left{top:auto;bottom:27px;transform:rotate(270deg)}.floral.bottom-right{top:auto;left:auto;right:29px;bottom:27px;transform:rotate(180deg)}
 .opening{position:absolute;top:126px;width:100%;font-family:Amiri,serif;font-size:31px;line-height:1.65}
 .grace{position:absolute;top:190px;width:100%;font:500 10px Inter,sans-serif;letter-spacing:3.4px}
 .occasion{position:absolute;top:228px;width:100%;font:500 29px Cormorant,serif;letter-spacing:6px}
-h1{position:absolute;top:278px;width:100%;margin:0;font:500 89px/1.08 Cormorant,serif;letter-spacing:-1.5px}
-h1 span{font-weight:400;font-style:italic;font-size:67px;color:#B4965D;padding:0 6px}
-.divider{position:absolute;top:397px;left:50%;transform:translateX(-50%);width:160px;height:25px;fill:none;stroke:#B4965D;stroke-width:.9}
+h1{position:absolute;top:278px;width:100%;margin:0;font:400 104px/1.08 Names,serif;letter-spacing:0}
+h1 span{font-weight:400;font-style:normal;font-size:52px;color:#536958;padding:0 6px}
+.divider{position:absolute;top:397px;left:50%;transform:translateX(-50%);width:160px;height:25px;fill:none;stroke:#b28f97;stroke-width:.9}
 .date{position:absolute;top:442px;width:100%;font:500 31px/1 Cormorant,serif;letter-spacing:.7px}
 .place{position:absolute;top:495px;width:100%;font:500 10px Inter,sans-serif;letter-spacing:3px}
-.signature{position:absolute;top:565px;left:50%;transform:translateX(-50%);width:36px;height:36px;fill:none;stroke:#B4965D;stroke-width:.8}
+.signature{position:absolute;top:565px;left:50%;transform:translateX(-50%);width:36px;height:36px;fill:none;stroke:#b28f97;stroke-width:.8}
 </style></head><body>
 <div class="border"></div><div class="border inner"></div>
 <svg class="architecture" viewBox="0 0 1200 630" aria-hidden="true">
@@ -51,6 +52,8 @@ h1 span{font-weight:400;font-style:italic;font-size:67px;color:#B4965D;padding:0
 <path d="M217 554h26m714 0h26"/>
 </svg>
 <img class="floral" src="${botanical}" alt=""><img class="floral right" src="${botanical}" alt="">
+<img class="floral bottom-left" src="${botanical}" alt="">
+<img class="floral bottom-right" src="${botanical}" alt="">
 <div class="opening" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 <div class="grace">BY THE GRACE OF ALLAH</div>
 <div class="occasion">DAAWAT-E-WALIMA</div>

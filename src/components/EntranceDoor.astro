@@ -1,0 +1,248 @@
+---
+const leafOutline = 'M42 748V300c0-35 16-64 47-84 7-33 26-53 63-67 7-31 30-49 65-64 36-15 62-35 83-63V748Z';
+const archOutline = 'M25 749V303c0-43 20-77 49-99 10-36 35-60 65-74 11-34 36-54 68-67 39-17 70-42 93-61 23 19 54 44 93 61 32 13 57 33 68 67 30 14 55 38 65 74 29 22 49 56 49 99v446';
+---
+
+<details id="invitation-entrance" data-invitation-entrance data-entrance-state="closed">
+  <summary class="entrance-screen" data-entrance-open aria-controls="invitation-content">
+    <span class="entrance-backdrop" aria-hidden="true"></span>
+    <span class="entrance-edge" aria-hidden="true"></span>
+    <span class="entrance-heading">Daawat-e-Walima</span>
+
+    <span class="entrance-gateway-wrap">
+      <span class="entrance-gateway" aria-hidden="true">
+      <svg class="entrance-architecture" viewBox="0 0 600 760" fill="none">
+        <defs>
+          <pattern id="entrance-lattice" width="42" height="42" patternUnits="userSpaceOnUse">
+            <path d="m21 1 20 20-20 20L1 21Zm0 10 10 10-10 10-10-10Z" stroke="currentColor" stroke-width=".65" />
+          </pattern>
+        </defs>
+        <path d={archOutline} stroke="currentColor" stroke-width="1.2" />
+        <path d={archOutline} transform="translate(12 13) scale(.96 .982)" stroke="currentColor" stroke-width=".7" />
+        <path d="M7 749V260c0-55 32-91 78-114C122 78 212 67 300 0c88 67 178 78 215 146 46 23 78 59 78 114v489" stroke="currentColor" stroke-width=".6" opacity=".35" />
+        <path d="M25 748H575M12 755H588M16 748V316M584 748V316" stroke="currentColor" stroke-width="1" />
+        <path d="M29 731V319c0-39 17-68 47-90 9-35 32-58 67-73 9-31 30-51 65-66 40-17 69-39 92-68 23 29 52 51 92 68 35 15 56 35 65 66 35 15 58 38 67 73 30 22 47 51 47 90v412" stroke="currentColor" stroke-width="5" opacity=".11" />
+        <path d="m300 7 6 12-6 12-6-12Zm-281 342 8 13-8 13-8-13Zm562 0 8 13-8 13-8-13Z" fill="var(--sage)" />
+      </svg>
+
+      {['left', 'right'].map((side) => (
+        <span class={`entrance-leaf entrance-leaf-${side}`}>
+          <svg class="entrance-leaf-art" viewBox="0 0 300 760" fill="none" preserveAspectRatio="none">
+            <defs>
+              <clipPath id={`entrance-leaf-clip-${side}`}><path d={leafOutline} /></clipPath>
+              <pattern id={`entrance-velvet-${side}`} width="600" height="760" patternUnits="userSpaceOnUse">
+                <image href="/textures/velvet.webp" width="600" height="760" preserveAspectRatio="xMidYMid slice" />
+              </pattern>
+              <pattern id={`entrance-jali-${side}`} width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="translate(13 1)">
+                <path d="m26 1 25 25-25 25L1 26Zm0 11 14 14-14 14-14-14ZM0 0l13 13M52 0 39 13M0 52l13-13m39 13L39 39" stroke="currentColor" stroke-width=".6" />
+                <circle cx="26" cy="26" r="3" stroke="currentColor" stroke-width=".65" />
+              </pattern>
+            </defs>
+            <path d={leafOutline} fill="var(--maroon)" />
+            <path d={leafOutline} fill={`url(#entrance-velvet-${side})`} />
+            <g clip-path={`url(#entrance-leaf-clip-${side})`}>
+              <path d="M60 737V301c0-31 15-54 45-74 6-30 26-49 62-63 7-29 30-48 63-62 36-16 57-33 70-48" stroke="currentColor" stroke-width="1.1" />
+              <path d="M70 727V306c0-28 16-51 44-69 7-29 28-47 62-60 8-28 29-46 61-60 27-12 47-24 63-37" stroke="currentColor" stroke-width=".6" opacity=".65" />
+              <path d="M79 350V312c0-25 15-45 43-64 6-26 27-44 59-56 9-26 27-42 58-55 27-12 47-25 61-37v250Z" fill={`url(#entrance-jali-${side})`} opacity=".34" />
+              <path d="M79 350h207M79 362h207M286 94v644M293 52v696" stroke="currentColor" stroke-width=".9" opacity=".7" />
+              <path d="M81 380h186v217H81Z" stroke="currentColor" stroke-width=".75" opacity=".8" />
+              <path d="M89 388h170v201H89Z" stroke="currentColor" stroke-width=".5" opacity=".5" />
+              <path d="m174 404 63 84-63 84-63-84Z" stroke="currentColor" stroke-width=".65" opacity=".5" />
+              <path d="m174 427 43 61-43 61-43-61Z" stroke="currentColor" stroke-width=".55" opacity=".38" />
+              <path d="M174 450v76m-17-57c17 0 17-13 17-19 0 6 0 19 17 19-17 0-17 13-17 19 0-6 0-19-17-19Zm0 38c17 0 17-13 17-19 0 6 0 19 17 19-17 0-17 13-17 19 0-6 0-19-17-19Z" stroke="currentColor" stroke-width=".9" opacity=".75" />
+              <path d="M81 615h186v112H81Z" stroke="currentColor" stroke-width=".75" opacity=".8" />
+              <path d="M89 623h170v96H89Z" stroke="currentColor" stroke-width=".5" opacity=".5" />
+              <circle cx="55" cy="380" r="2" fill="currentColor" opacity=".7" />
+              <circle cx="55" cy="489" r="2" fill="currentColor" opacity=".7" />
+              <circle cx="55" cy="597" r="2" fill="currentColor" opacity=".7" />
+              <path d="M285 441h-11v37h11m-7-28a13 13 0 1 0 0 24 13 13 0 0 0 0-24Z" stroke="currentColor" stroke-width="2.1" />
+              <path d="M297 50v698" stroke="var(--forest-deep)" stroke-width="4" opacity=".8" />
+            </g>
+            <path d={leafOutline} stroke="currentColor" stroke-width="1.35" />
+          </svg>
+        </span>
+      ))}
+
+      <span class="entrance-monogram">F<span>&</span>R</span>
+      <span class="entrance-crest">
+        <svg viewBox="0 0 80 24" fill="none"><path d="M1 12h24m30 0h24M40 1l10 11-10 11-10-11Zm0 6 5 5-5 5-5-5Z" stroke="currentColor" stroke-width=".7" /></svg>
+      </span>
+      </span>
+
+      <span class="entrance-invitation">
+        <span class="entrance-prompt">Click to open</span>
+        <span class="entrance-prompt-rule" aria-hidden="true"></span>
+        <span class="entrance-subtitle">With love, you are invited</span>
+      </span>
+    </span>
+  </summary>
+
+  <div id="invitation-content" data-invitation-content tabindex="-1"><slot /></div>
+</details>
+
+<script>
+  import '../scripts/invitation-entrance';
+</script>
+
+<style>
+  :global(html[data-invitation-locked]) { overflow: hidden; }
+
+  [data-invitation-content]:focus { outline: none; }
+
+  .entrance-screen {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    color: var(--sage-light);
+    cursor: pointer;
+    list-style: none;
+    isolation: isolate;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .entrance-screen::-webkit-details-marker { display: none; }
+  .entrance-screen::marker { content: ''; }
+  .entrance-screen:focus-visible { outline: none; }
+  .entrance-screen:focus-visible .entrance-edge { outline: 2px solid var(--paper); outline-offset: -7px; }
+
+  .entrance-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-color: var(--forest-deep);
+    background-image: radial-gradient(ellipse at 50% 45%, #31504455, #12302700 65%);
+    transition: opacity .6s ease .55s;
+  }
+
+  .entrance-edge {
+    position: absolute;
+    z-index: -1;
+    inset: max(15px, env(safe-area-inset-top)) max(15px, env(safe-area-inset-right)) max(15px, env(safe-area-inset-bottom)) max(15px, env(safe-area-inset-left));
+    border: 1px solid #b8c8ad44;
+    pointer-events: none;
+    transition: opacity .4s ease .5s;
+  }
+
+  .entrance-edge::before {
+    position: absolute;
+    inset: 5px;
+    border: 1px solid #b8c8ad18;
+    content: '';
+  }
+
+  .entrance-heading {
+    position: absolute;
+    z-index: 3;
+    top: max(41px, calc((100svh - 800px) / 2));
+    font: 400 10px/1.5 var(--sans);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    transition: opacity .25s ease;
+  }
+
+  .entrance-gateway-wrap {
+    position: relative;
+    display: block;
+    width: min(600px, 87vw, calc((100svh - 122px) * .78947));
+    aspect-ratio: 600 / 760;
+    margin-top: -5px;
+  }
+
+  .entrance-gateway {
+    position: absolute;
+    inset: 0;
+    display: block;
+    color: var(--sage);
+    perspective: 1300px;
+    perspective-origin: 50% 50%;
+  }
+
+  .entrance-architecture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    transition: opacity .6s ease .5s;
+  }
+
+  .entrance-leaf {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    backface-visibility: hidden;
+    transition: transform 1.15s cubic-bezier(.4, 0, .15, 1), opacity .3s ease .95s;
+    will-change: transform;
+  }
+
+  .entrance-leaf-left { left: 0; transform-origin: 14% 50%; }
+  .entrance-leaf-right { right: 0; transform-origin: 86% 50%; }
+  .entrance-leaf-art { width: 100%; height: 100%; }
+  .entrance-leaf-right .entrance-leaf-art { transform: scaleX(-1); }
+
+  .entrance-monogram {
+    position: absolute;
+    z-index: 2;
+    top: 27%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font: 400 clamp(36px, 8vw, 58px)/1 var(--cursive);
+    color: var(--paper);
+    transition: opacity .2s ease;
+  }
+
+  .entrance-monogram > span { margin: 0 8px; font: italic 400 .45em/1 var(--serif); }
+  .entrance-crest { position: absolute; top: 37%; left: 41.5%; z-index: 2; width: 17%; transition: opacity .2s ease; }
+  .entrance-crest svg { width: 100%; height: auto; }
+
+  .entrance-invitation {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 6%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(4px, .9vw, 7px);
+    text-align: center;
+    transition: opacity .2s ease;
+  }
+
+  .entrance-prompt { font: italic 400 clamp(20px, 5.65vw, 28px)/1.3 var(--serif); color: var(--paper); }
+  .entrance-prompt-rule { width: 26px; border-top: 1px solid var(--sage); opacity: .65; transition: width .3s ease; }
+  .entrance-subtitle { font: 400 clamp(6px, 1.8vw, 8px)/1.5 var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+  .entrance-screen:hover .entrance-prompt-rule { width: 42px; }
+
+  details[open] > .entrance-screen { display: none; }
+  details[open][data-entrance-state='opening'] > .entrance-screen { display: flex; position: fixed; inset: 0; height: 100%; }
+  [data-entrance-state='opening'] .entrance-leaf-left { transform: rotateY(-105deg); opacity: 0; }
+  [data-entrance-state='opening'] .entrance-leaf-right { transform: rotateY(105deg); opacity: 0; }
+  [data-entrance-state='opening'] :is(.entrance-backdrop, .entrance-edge, .entrance-heading, .entrance-architecture, .entrance-monogram, .entrance-crest, .entrance-invitation) { opacity: 0; }
+
+  @media (max-height: 620px) {
+    .entrance-heading { top: 30px; font-size: 8px; }
+    .entrance-gateway-wrap { width: min(87vw, calc((100svh - 110px) * .78947)); margin-top: -14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .entrance-screen *, .entrance-screen *::before { transition: none !important; }
+    [data-entrance-state='opening'] .entrance-leaf { transform: none; }
+  }
+
+  @media print {
+    .entrance-screen { display: none !important; }
+    :global(details[data-invitation-entrance] > [data-invitation-content]) { display: block !important; }
+    :global(details[data-invitation-entrance]::details-content) { content-visibility: visible !important; }
+  }
+</style>
