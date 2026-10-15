@@ -99,8 +99,8 @@ test("the rendered invitation contains the approved couple, family and event det
     "Daawat-e-Walima",
     "Fahad Masood",
     "Rahnuma Zarrin",
-    "Mr. & Mrs. Masood Alam",
-    "Beloved son of Mr. Masood Alam",
+    "Mr. Masood Alam and Mrs. Rubeena Shamim",
+    "Beloved son of Mr. Masood Alam and Mrs. Rubeena Shamim",
     "Beloved daughter of Mrs. Shamshad Begum",
     "15 November 2026",
     "6:00 PM",
@@ -382,6 +382,7 @@ test("the calendar is correctly folded UTF-8 with escaped text and an exact loca
       "Sunday, 15 November 2026 | 6:00 PM IST onwards.",
     ),
   );
+  assert.ok(unescapeText(property("DESCRIPTION")).includes("Hosted by Mr. Masood Alam and Mrs. Rubeena Shamim."), "Name both hosts in the calendar.");
   assert.equal(property("URL"), directions);
   const instant = new Date("2026-11-15T18:00:00+05:30");
   assert.equal(instant.toISOString(), "2026-11-15T12:30:00.000Z");
@@ -397,8 +398,9 @@ test("the calendar is correctly folded UTF-8 with escaped text and an exact loca
 });
 
 
-test("every original section, metadata value, event field, and calendar byte is preserved", async () => {
+test("approved content, updated hosts, and calendar stay consistent", async () => {
   const approved = JSON.parse(await readFile(resolve(root, 'tests/fixtures/approved-content.json'), 'utf8'));
+  assert.doesNotMatch(html, /Mr\. (?:&amp;|&) Mrs\. Masood Alam/i, 'Remove the former combined host wording.');
   const stripped = html
     .replace(/<(script|style|svg)\b[^>]*>[\s\S]*?<\/\1>/gi, '')
     .replace(/<span\b[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/span>/gi, '')

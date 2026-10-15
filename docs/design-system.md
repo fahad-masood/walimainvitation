@@ -1,6 +1,6 @@
 # Invitation visual identity
 
-The Walima now uses the same self-contained maroon-and-green identity as the companion invitation. Its existing event data, name order, host wording, RSVP list, religious passages, directions, calendar, and other invitation copy remain unchanged.
+The Walima now uses the same self-contained maroon-and-green identity as the companion invitation. The existing name order, event date, time, venue, RSVP list, religious passages, and directions remain unchanged. The hosts are explicitly named as Mr. Masood Alam and Mrs. Rubeena Shamim throughout, including the family attribution, closing, metadata, and calendar description.
 
 ## Palette and typography
 
@@ -10,13 +10,13 @@ Great Vibes renders the couple’s, host’s, and parents’ names. Cormorant Ga
 
 ## Components and composition
 
-The Mughal doors, arch, rosette separators, four small textured rose clusters, rear-view couple illustration, velvet panels, and closing botanicals match the companion assets. The four hero flowers share one 48 KB transparent WebP. The same November calendar marks this event’s supplied date, the 15th, with a heart that gently blinks each second. Its selected date is derived from the unchanged event data.
+The envelope shares the companion’s velvet, colors, monogram, and ornamental linework. Its seal lifts, flap unfolds, and card rises before the invitation is revealed. The arch, rosette separators, four small textured rose clusters, rear-view couple illustration, velvet panels, and closing botanicals match the companion assets. The four hero flowers share one 48 KB transparent WebP. The same November calendar marks this event’s supplied date, the 15th, with a heart that gently blinks each second. Its selected date is derived from the unchanged event data.
 
-The Walima’s original sequence remains: masthead, hero, formal invitation and families, Quran excerpt, celebration details, venue, all seven RSVP names, and the closing passage and family signature. The existing date panel remains alongside the new calendar. Existing directions and calendar links retain their original destinations and filenames. No sharing action is added.
+The Walima’s original sequence remains: masthead, hero, formal invitation and families, Quran excerpt, celebration details, venue, all seven RSVP names, and the closing passage and family signature. The existing date panel remains alongside the calendar. Existing directions and calendar links retain their original destinations and filenames. No sharing action is added.
 
 ## Interaction and hosting
 
-The door tap opens the invitation and starts the same local recording. Playback can be paused, the audio does not preload, reduced motion skips the animation, and native disclosure opens the invitation without JavaScript. Essential invitation content is static HTML. The music control becomes a compact icon on short phone screens to keep the initial date visible.
+The envelope tap opens the invitation and starts the same local recording. Playback can be paused, the audio does not preload, reduced motion skips the animation, and native disclosure opens the invitation without JavaScript. Reduced motion opens immediately. The 1.85-second ordinary opening preserves a synchronous music start in the guest’s tap. Essential invitation content is static HTML. The music control becomes a compact icon on short phone screens to keep the initial date visible.
 
 Content Security Policy permits local fonts, images, audio, and external local scripts; inline scripts and third-party render resources remain blocked. The hosting files retain the original calendar response headers and add weekly caching for the new fonts and artwork.
 

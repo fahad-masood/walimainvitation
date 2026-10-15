@@ -57,7 +57,7 @@ if (entrance && opener && content) {
     if (reducedMotion.matches) {
       finishOpening();
     } else {
-      completionTimer = window.setTimeout(() => finishOpening(), 1400);
+      completionTimer = window.setTimeout(() => finishOpening(), 1850);
     }
   });
 
@@ -66,7 +66,7 @@ if (entrance && opener && content) {
   });
 
   entrance.addEventListener('toggle', () => {
-    // Fragment navigation must wait for the same door activation as every guest.
+    // Fragment navigation must wait for the same envelope activation as every guest.
     if (entrance.open && entrance.dataset.entranceState === 'closed') {
       entrance.open = false;
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

@@ -3,7 +3,7 @@ import '../styles/theme.css';
 import '../styles/invitation.css';
 import '../styles/names.css';
 import '../styles/identity.css';
-import EntranceDoor from '../components/EntranceDoor.astro';
+import EntranceEnvelope from '../components/EntranceEnvelope.astro';
 import FloralCorners from '../components/FloralCorners.astro';
 import InvitationMusic from '../components/InvitationMusic.astro';
 import Botanical from '../components/Botanical.astro';
@@ -14,7 +14,7 @@ import Icon from '../components/Icon.astro';
 import Arch from '../components/Arch.astro';
 import arabicFont from '../assets/fonts/amiri-arabic-400-normal.woff2?url';
 
-const description = 'By the grace of Allah, join Mr. & Mrs. Masood Alam for the Daawat-e-Walima of Fahad Masood & Rahnuma Zarrin. Sunday, 15 November 2026, 6:00 PM IST onwards, Regal Palace, Asopur, Tanda.';
+const description = 'By the grace of Allah, join Mr. Masood Alam and Mrs. Rubeena Shamim for the Daawat-e-Walima of Fahad Masood & Rahnuma Zarrin. Sunday, 15 November 2026, 6:00 PM IST onwards, Regal Palace, Asopur, Tanda.';
 const canonical = Astro.site ? new URL('/', Astro.site).href : undefined;
 const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-preview.png';
 ---
@@ -47,7 +47,7 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
     <meta name="twitter:image" content={preview} />
   </head>
   <body>
-    <EntranceDoor>
+    <EntranceEnvelope>
     <div class="page-frame" aria-hidden="true"></div>
     <a class="skip-link" href="#invitation">Skip to invitation</a>
     <header class="masthead">
@@ -82,7 +82,7 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
         <p class="formal-occasion">DAAWAT-E-WALIMA</p>
         <p class="invitation-request">celebrating the blessed marriage of their beloved son</p>
         <div class="family-composition">
-          <div><p class="family-name">{event.groom}</p><p class="family-relation">Beloved son of <span class="parent-name">{event.groomFather}</span></p></div>
+          <div><p class="family-name">{event.groom}</p><p class="family-relation">Beloved son of <span class="parent-name">{event.hosts}</span></p></div>
           <span class="family-ampersand" aria-hidden="true">&amp;</span>
           <div><p class="family-name">{event.bride}</p><p class="family-relation">Beloved daughter of <span class="parent-name">{event.brideMother}</span></p></div>
         </div>
@@ -156,12 +156,12 @@ const preview = Astro.site ? new URL('/og-preview.png', Astro.site).href : '/og-
         <p class="closing-citation">A translation of Surah An-Naba (78:8)</p>
         <p class="closing-dua">May Allah bless this union with lasting love,<br class="desktop-break" /> mercy, peace, and barakah. Ameen.</p>
         <p class="closing-regards">With warm regards,</p>
-        <p class="closing-family">Mr. &amp; Mrs. Masood Alam &amp; Family</p>
+        <p class="closing-family">{event.hosts}</p>
         <span class="closing-monogram" aria-hidden="true">F <i>&amp;</i> R</span>
         <p class="closing-date">DAAWAT-E-WALIMA <span>·</span> 15 NOVEMBER 2026</p>
       </footer>
     </main>
     <InvitationMusic />
-    </EntranceDoor>
+    </EntranceEnvelope>
   </body>
 </html>

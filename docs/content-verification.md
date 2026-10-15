@@ -5,8 +5,9 @@ The invitation is exclusively for **Daawat-e-Walima**.
 | Detail | Approved content |
 | --- | --- |
 | Couple | Fahad Masood & Rahnuma Zarrin |
-| Hosts | Mr. & Mrs. Masood Alam |
+| Hosts | Mr. Masood Alam and Mrs. Rubeena Shamim |
 | Groom’s father | Mr. Masood Alam |
+| Groom’s mother | Mrs. Rubeena Shamim |
 | Bride’s mother | Mrs. Shamshad Begum |
 | Date | Sunday, 15 November 2026 |
 | Start | 6:00 PM IST onwards |
